@@ -7,6 +7,6 @@ If anyone has tried anything and think it'll be helpful to share, please keep th
 
 
 ### Github Tutorial
-If you are not really familiar with how to connect github with your local git or having problems with creating pull requests or branches, here is a simple github tutorial, maybe helpful. 
+If you are not really familiar with how to connect github with your local git or having problems with creating pull requests or branches, there is a simple github tutorial, it might be helpful. 
 
-And if on the contrary, you are very familiar with github and think there should be more in the tutoratil, feel free to add more.
+And if on the contrary, you are very familiar with github and think there should be more in the tutorail, feel free to add more.
