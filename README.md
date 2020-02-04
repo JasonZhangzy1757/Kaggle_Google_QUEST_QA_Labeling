@@ -11,6 +11,15 @@ This is not a binary prediction challenge. Target labels are aggregated from mul
 
 Submissions are evaluated on the mean column-wise [Spearman's correlation coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient). The Spearman's rank correlation is computed for each target column, and the mean of these values is calculated for the submission score.
 
+## Stage 1: Find a Baseline
+
+ - [`200102_Data&EDA_Jason.ipynb`](https://github.com/JasonZhangzy1757/Kaggle_Google_QUEST_QA_Labeling/blob/master/200102_Data%20%26%20EDA_Jason.ipynb) is general EDA over the datasets, so we could have a general understanding of the datasets. 
+ 
+ - Then without doing much feature engineering, a fine-tuned Bert Model [`200102_BertModel_Jason.ipynb`](https://github.com/JasonZhangzy1757/Kaggle_Google_QUEST_QA_Labeling/blob/master/200101_BertModel_Jason.ipynb) is applied to reach a baseline score of 0.385.
+ 
+ - From the cross validation result from [`191228_Baseline_with_validation_Cara.ipynb`](https://github.com/JasonZhangzy1757/Kaggle_Google_QUEST_QA_Labeling/blob/master/191228_Baseline_with_validation_Cara.ipynb) we could find that the general performance is good while three columns among them: `question_not_really_a_question`, `question_type_consequence` and `question_type_spelling` have extremely bad performance due to dramatic imbalance in the training dataset. 
+
+
 # Uploading Format
 If anyone has tried anything and think it'll be helpful to share, please keep the following format： __"Time_Title_Name"__
 - e.g. `191228_EDA_Jason`, `191227_BERT_Trial1_Jason`
