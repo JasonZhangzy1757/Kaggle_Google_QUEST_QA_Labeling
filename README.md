@@ -17,8 +17,13 @@ Submissions are evaluated on the mean column-wise [Spearman's correlation coeffi
  
  - Then without doing much feature engineering, a fine-tuned Bert Model [`200102_BertModel_Jason.ipynb`](https://github.com/JasonZhangzy1757/Kaggle_Google_QUEST_QA_Labeling/blob/master/200101_BertModel_Jason.ipynb) is applied to reach a baseline score of 0.385.
  
- - From the cross validation result from [`191228_Baseline_with_validation_Cara.ipynb`](https://github.com/JasonZhangzy1757/Kaggle_Google_QUEST_QA_Labeling/blob/master/191228_Baseline_with_validation_Cara.ipynb) we could find that the general performance is good while three columns among them: `question_not_really_a_question`, `question_type_consequence` and `question_type_spelling` have extremely bad performance due to dramatic imbalance in the training dataset. 
+ - From the cross validation result from [`191228_Baseline_with_validation_Cara.ipynb`](https://github.com/JasonZhangzy1757/Kaggle_Google_QUEST_QA_Labeling/blob/master/191228_Baseline_with_validation_Cara.ipynb) we could find that the general performance is good while three columns among them: `question_not_really_a_question`, `question_type_consequence` and `question_type_spelling` have extremely bad performance due to dramatic imbalance in the training set. 
 
+## Stage 2: Deal with imbalanced columns
+
+ - We have tried Stratified KFold to make sure the distribution of validation samples is the same with the entire dataset to eliminate the imbalance in the training set. The code is [here](https://github.com/JasonZhangzy1757/Kaggle_Google_QUEST_QA_Labeling/blob/master/190103_StratifiedKFold_Emmy.ipynb). Yet the performance never improved.
+ 
+ - Also, we tried to do feature engineering, because for the column `question_type_spelling`, every non-zero value is in the `CULTURE` category (in particular, the `english` or `ell` (English Language Learners) stackexchange URLs). As such, it worked in post-processing to just hardcode '0.0s' in any non-`CULTURE` category and 1.0 for the rest. The code is [here](https://github.com/JasonZhangzy1757/Kaggle_Google_QUEST_QA_Labeling/blob/master/200128_bert-tf2_treat_question_type_spelling_Cara.ipynb) and the performance improved to 0.389.
 
 # Uploading Format
 If anyone has tried anything and think it'll be helpful to share, please keep the following format： __"Time_Title_Name"__
